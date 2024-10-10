@@ -9,15 +9,3 @@ body{
   font-family: "Poppins", sans-serif;;
 }
 
-nav{
-  display: flex;
-  margin: 50px;
-  justify-content: space-between;
-}
-
-.menu-item{
-  display: flex;
-}
-ul li{
-  text-decoration: none;
-}
