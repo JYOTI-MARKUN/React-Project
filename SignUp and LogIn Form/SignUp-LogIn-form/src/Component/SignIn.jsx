@@ -2,6 +2,8 @@ import name from "./../assets/Images/person.png";
 import email from "./../assets/Images/email.png";
 import password from "./../assets/Images/password.png";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 
 const SignIn = () => {
   const [action, setAction] = useState("Sign In");
@@ -11,6 +13,7 @@ const SignIn = () => {
     password:""
   });
 
+  // chnaging input based on user Entry
 const handleChange=(e)=>{
   console.log(e)
   // console.log(e.name)
@@ -19,6 +22,7 @@ const handleChange=(e)=>{
   setformFields((pre)=>({...pre,[name]:value}))
 }  
 
+// clear input fields
  const clearFileds=()=>{
   setformFields({
     name:"",
@@ -27,6 +31,8 @@ const handleChange=(e)=>{
   })
  }
 
+ // usenavigate hook to go from one page to another in react
+ const navigate = useNavigate()
   return (
     <>
       <div className="container">
@@ -51,10 +57,10 @@ const handleChange=(e)=>{
           </div>
         </div>
       {action==="Log In"?  <div className="forgot-password">
-          ForgotPassword ?<span> Click Here</span>
+          ForgotPassword ?<span onClick={()=>{navigate("/newpassword")}} > Click Here</span>
         </div>:<div></div>}
         <div className="buttons">
-          <div
+          <button
             className={action === "Sign In" ? "signup btn" : "signup"}
             onClick={() => {
               setAction("Sign In");
@@ -62,8 +68,8 @@ const handleChange=(e)=>{
             }}
           >
             Sign Up
-          </div>
-          <div
+          </button>
+          <button
             className={action === "Log In" ? "login btn" : "login"}
             onClick={() => {
               setAction("Log In");
@@ -71,7 +77,7 @@ const handleChange=(e)=>{
             }}
           >
             Login
-          </div>
+          </button>
         </div>
       </div>
     </>
