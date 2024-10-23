@@ -38,8 +38,8 @@ const handleChange=(e)=>{
       <div className="container">
         <div className="header-content">
           
-          <h1 className="heading">{action}</h1>
-          <div className="underline"></div>
+          <h1 className="heading"><u>{action}</u></h1>
+         
         </div>
         <div className="inputs">
         {action==="Sign In"?   <div className="input name">
